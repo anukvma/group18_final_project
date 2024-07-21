@@ -1,5 +1,22 @@
 # Email Subject Generation (Group 18)
 
+## Description
+Generate a succinct subject line from the body of an email.
+Email Subject Line Generation task involves identifying the most important sentences in an email and abstracting their message into just a few words. The project provides an opportunity to work with generative models in NLP, specifically using GPT-2 variants, and to explore different metrics for evaluating text generation.
+
+## DataSet
+Email Subject Generation: Collect a dataset of emails with their corresponding subject lines. Dataset used is from the below repository for fine tuning the models
+The Annotated Enron Subject Line Corpus: https://github.com/ryanzhumich/AESLC
+
+## Models
+The following models are fine tuned 
+| LLM     	| Framework             | Model Type        | Training Steps       	| Evaluation Method    	|
+|---------	|---------------------	|-------------------|---------------------	|----------------------	|
+| Mistral 	| unsloth             	| 4 bit quantized 	| 60 	                  | ROUGE Score         	|
+| Llama3  	| unsloth             	| 4 bit quantized 	| 60  	                | ROUGE Score           |
+| T5      	| HuggingFace           | Base model       	| 200                  	| ROUGE Score          	|
+| Bart    	| HuggingFace           | Base model       	| 200                  	| ROUGE Score          	|
+
 ## Result
 | LLM     	| Rogue1              	| Rogue2               	| RougeL              	| RogueLSum            	|
 |---------	|---------------------	|----------------------	|---------------------	|----------------------	|
