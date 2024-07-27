@@ -24,9 +24,55 @@ The following models are fine tuned
 ### LLAMA3
 
 ### T5
-
+Model: t5-base
+Training Framework: Transformer Seq2SeqTrainer
+Training Arguments: 
+```Seq2SeqTrainingArguments(
+    model_dir,
+    evaluation_strategy="steps",
+    eval_steps=200,
+    logging_strategy="steps",
+    logging_steps=100,
+    save_strategy="steps",
+    save_steps=200,
+    learning_rate=4e-5,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    weight_decay=0.01,
+    save_total_limit=3,
+    num_train_epochs=2,
+    predict_with_generate=True,
+    fp16=True,
+    load_best_model_at_end=True,
+    metric_for_best_model="rouge1",
+    report_to="tensorboard"
+)
+```
 ### Bart
-
+Model: facebook/bart-large-xsum
+Training Framework: Transformer Seq2SeqTrainer
+Training Arguments: 
+```Seq2SeqTrainingArguments(
+    model_dir,
+    evaluation_strategy="steps",
+    eval_steps=200,
+    logging_strategy="steps",
+    logging_steps=100,
+    save_strategy="steps",
+    save_steps=200,
+    learning_rate=4e-5,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    weight_decay=0.01,
+    save_total_limit=3,
+    num_train_epochs=2,
+    predict_with_generate=True,
+    fp16=True,
+    load_best_model_at_end=True,
+    metric_for_best_model="rouge1",
+    report_to="tensorboard"
+)
+```
 ## Result
 | LLM     	| Rogue1              	| Rogue2               	| RougeL              	| RogueLSum            	|
 |---------	|---------------------	|----------------------	|---------------------	|----------------------	|
