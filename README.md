@@ -24,10 +24,11 @@ The following models are fine tuned
 ### LLAMA3
 
 ### T5
-Model: t5-base
-Training Framework: Transformer Seq2SeqTrainer
-Training Arguments: 
-```Seq2SeqTrainingArguments(
+Model: t5-base \
+Training Framework: Transformer Seq2SeqTrainer \
+Training Arguments: \
+```
+Seq2SeqTrainingArguments(
     model_dir,
     evaluation_strategy="steps",
     eval_steps=200,
@@ -49,10 +50,11 @@ Training Arguments:
 )
 ```
 ### Bart
-Model: facebook/bart-large-xsum
-Training Framework: Transformer Seq2SeqTrainer
-Training Arguments: 
-```Seq2SeqTrainingArguments(
+Model: facebook/bart-large-xsum \
+Training Framework: Transformer Seq2SeqTrainer \
+Training Arguments: \
+```
+Seq2SeqTrainingArguments(
     model_dir,
     evaluation_strategy="steps",
     eval_steps=200,
