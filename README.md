@@ -14,10 +14,10 @@ The following models are fine tuned
 |---------	|---------------------	|-------------------|---------------------	|----------------------	|
 | Mistral 	| unsloth             	| 4 bit quantized 	| 60 	                  | ROUGE Score         	|
 | Llama3  	| unsloth             	| 4 bit quantized 	| 60  	                | ROUGE Score           |
-| T5      	| HuggingFace           | Base model       	| 200                  	| ROUGE Score          	|
-| Bart    	| HuggingFace           | Base model       	| 200                  	| ROUGE Score          	|
+| T5      	| Transformer           | Base model       	| 200                  	| ROUGE Score          	|
+| Bart    	| Transformer           | Base model       	| 200                  	| ROUGE Score          	|
 
-## Training Steps
+## Training Details
 
 ### Mistral
 Model: unsloth/mistral-7b-v0.3-bnb-4bit 
