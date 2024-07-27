@@ -99,6 +99,7 @@ TrainingArguments(
         seed = 3407,
         output_dir = "outputs",
     )
+```
 ### T5
 Model: t5-base \
 Training Framework: Transformer Seq2SeqTrainer \
