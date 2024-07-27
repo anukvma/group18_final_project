@@ -20,6 +20,48 @@ The following models are fine tuned
 ## Training Steps
 
 ### Mistral
+Model: unsloth/mistral-7b-v0.3-bnb-4bit \
+```
+FastLanguageModel.get_peft_model(
+    model,
+    r = 16, # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
+    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",
+                      "gate_proj", "up_proj", "down_proj",],
+    lora_alpha = 16,
+    lora_dropout = 0, # Supports any, but = 0 is optimized
+    bias = "none",    # Supports any, but = "none" is optimized
+    # [NEW] "unsloth" uses 30% less VRAM, fits 2x larger batch sizes!
+    use_gradient_checkpointing = "unsloth", # True or "unsloth" for very long context
+    random_state = 3407,
+    use_rslora = False,  # We support rank stabilized LoRA
+    loftq_config = None, # And LoftQ
+)
+```
+Training Framework: Huggingface trl [SFTrainer](https://huggingface.co/docs/trl/v0.9.6/en/sft_trainer#trl.SFTTrainer) \
+Training Arguments:
+```
+TrainingArguments(
+    per_device_train_batch_size = 2,
+    per_device_eval_batch_size=2,
+    gradient_accumulation_steps = 4,
+    evaluation_strategy="steps",
+    warmup_steps = 5,
+    num_train_epochs=3,
+    max_steps = 60, # Set num_train_epochs = 1 for full training runs
+    learning_rate = 2e-4,
+    fp16 = not is_bfloat16_supported(),
+    bf16 = is_bfloat16_supported(),
+    logging_steps = 1,
+    optim = "adamw_8bit",
+    weight_decay = 0.01,
+    lr_scheduler_type = "linear",
+    seed = 3407,
+    output_dir = "outputs",
+#      report_to="wandb",  # enable logging to W&B
+    logging_strategy = 'steps',
+   # save_total_limit=2,
+)
+```
 
 ### LLAMA3
 
