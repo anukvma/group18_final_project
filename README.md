@@ -41,10 +41,10 @@ The following models are fine tuned
 3. Generative model use work synonyms, hence Rogue score is very low.
 4. Seq2Seq models pick up the words from Email content, which is expected in this experiment, hence Rouge score is high.
 5. Bart and T5 both models are encoder-decoder type models, but Bart performs better than T5 due to:
-  1. Type of corpus these models are trained with is different
-  2. T5 randomly drop 15% tokens during training, but Bart is trained by corrupting documents and then optimizing a reconstruction loss
-  3. T5 uses relative positional encoding, where Bart uses absolute positional encoding
-  4. Bart initializes parameters from N (0, 0.02), where T5 N(0, 1/sqrt(d_model))
+   * Type of corpus these models are trained with is different
+   * T5 randomly drop 15% tokens during training, but Bart is trained by corrupting documents and then optimizing a reconstruction loss
+   * T5 uses relative positional encoding, where Bart uses absolute positional encoding
+   * Bart initializes parameters from N (0, 0.02), where T5 N(0, 1/sqrt(d_model))
      
 ## HuggingFace Demo URL
 https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo
