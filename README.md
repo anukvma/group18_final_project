@@ -26,7 +26,7 @@ The following models are fine tuned
 ### T5
 Model: t5-base \
 Training Framework: Transformer Seq2SeqTrainer \
-Training Arguments: \
+Training Arguments: 
 ```
 Seq2SeqTrainingArguments(
     model_dir,
@@ -52,7 +52,7 @@ Seq2SeqTrainingArguments(
 ### Bart
 Model: facebook/bart-large-xsum \
 Training Framework: Transformer Seq2SeqTrainer \
-Training Arguments: \
+Training Arguments: 
 ```
 Seq2SeqTrainingArguments(
     model_dir,
