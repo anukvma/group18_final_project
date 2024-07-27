@@ -24,3 +24,6 @@ The following models are fine tuned
 | Llama3  	| 0.044540652323630435 	| 0.016282087086038018 	| 0.03984053234184394  	| 0.04157418257161926  	|
 | T5      	| 0.144567            	| 0.070306             	| 0.140258            	| 0.141119             	|
 | Bart    	| 0.267373            	| 0.134597             	| 0.249993            	| 0.250012             	|
+
+## HuggingFace Demo URL
+https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo
