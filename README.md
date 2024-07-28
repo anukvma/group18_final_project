@@ -152,6 +152,83 @@ Seq2SeqTrainingArguments(
     report_to="tensorboard"
 )
 ```
+## Inference Results
+
+# Email Body:
+﻿Please help summarize the provided email body and generate email subject Kevin Presto is requesting that you attend a meeting regarding Organizing an Action Plan for the Start-up of Netco.\nThe meeting will be held in ECS 06716 at 9:30 am, Wednesday, January 2, 2002.\nFor Tim and Chris, could you please call 713-584-2067.\nThis is the telephone number in the conference room.\nIf you should have any questions, please call T Jae Black at 3-5800.\nThanks
+ 
+# Reference Output:
+meeting regarding the netco start up action plan
+
+# Llama3 Model Output:
+﻿Netco Action Plan Meeting
+
+# Mistral Model Output:
+﻿Meeting on Netco Startup
+
+# T5 Model Output:
+
+
+# Bart Model Output:
+Organizing an Action Plan
+
+# Email Body:
+﻿Please help summarize the provided email body and generate email subject Of interest - Gas Logistics combined 2001 payroll is $8,209,648.\nThe 2002 Plans were built with a 4.25% combined merit and other which equates to $348,910.\nAt 3.75% the combined merit and other equates to $307,862, a reduction of $41,048.\nOver the next few days, I will be rebuilding the 2002 revised plan for distribution.\nDonna
+  
+# Reference Output:
+"Reduced %",
+"gas logistics combined 2001 payroll",
+"of interest; new percentage rates coming for revised 2002 distributions of merits",
+"plan to rebuild gas logistics payroll plan underway"
+
+# Llama3 Model Output:
+﻿Gas Logistics Payroll
+
+# Mistral Model Output:
+﻿Gas Logistics combined payroll and merit increase
+
+# T5 Model Output:
+
+
+# Bart Model Output:
+2002 plans
+
+# Email Body
+﻿Please help summarize the provided email body and generate email subject The following reports have been waiting for your approval for more than 4 days. Please review. Owner: James W Reitmeyer Report Name: JReitmeyer 10/24/01 Days In Mgr. Queue: 5
+
+# Reference Ouptut:
+reports awaiting approval
+
+# Llama3 Model Output:
+﻿Reports Waiting For Approval
+
+# Mistral Model Output:
+﻿Approval Needed - Reports Waiting More Than Four Days
+
+# T5 Model Output:
+
+
+# Bart Model Output:
+Expense Reports Awaiting Your Approval
+
+# Email Body:
+﻿Please help summarize the provided email body and generate email subject A new Kudlow Commentary has been published on Kudlow.com.\nAs a subscriber, you may click the hyperlink below, login, and view the latest commentary.\nAOL Users please note, you may need to copy and paste the hyperlink into your web browser.\nThank You,
+
+# Reference Output:
+New Kudlow Commentary
+
+# Llama3 Model Output:
+﻿New Kudlow Commentaries Available Online
+
+# Mistral Model Output:
+﻿Kudlow Commentary - The New Year's Resolution
+
+# T5 Model Output:
+
+
+# Bart Model Output:
+Kudlow Commentary
+
 ## Model Evaluation Criteria
 ### Rouge Score
 Rouge score measures the similarity between the generated subject and the provided subject using overlapping n-grams. It ranges from 0 to 1, with higher values indicating better summary quality.
