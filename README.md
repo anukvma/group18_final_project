@@ -167,7 +167,7 @@ meeting regarding the netco start up action plan
 ﻿Meeting on Netco Startup
 
 ### T5 Model Output:
-
+Organizing an Action Plan for the Start
 
 ### Bart Model Output:
 Organizing an Action Plan
@@ -188,7 +188,7 @@ Organizing an Action Plan
 ﻿Gas Logistics combined payroll and merit increase
 
 ### T5 Model Output:
-
+Gas Logistics combined 2001 payroll is $8,2
 
 ### Bart Model Output:
 2002 plans
@@ -206,7 +206,7 @@ reports awaiting approval
 ﻿Approval Needed - Reports Waiting More Than Four Days
 
 ### T5 Model Output:
-
+Reports Waiting For Your Approval
 
 ### Bart Model Output:
 Expense Reports Awaiting Your Approval
@@ -224,7 +224,7 @@ New Kudlow Commentary
 ﻿Kudlow Commentary - The New Year's Resolution
 
 ### T5 Model Output:
-
+Kudlow Commentary
 
 ### Bart Model Output:
 Kudlow Commentary
