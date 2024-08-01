@@ -252,4 +252,14 @@ Rouge score measures the similarity between the generated subject and the provid
    * Bart initializes parameters from N (0, 0.02), where T5 N(0, 1/sqrt(d_model))
      
 ## HuggingFace Demo URL
-https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo
+**Gradio App:** https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo \
+**FAST API:** https://anukvma-emailsubjectapi.hf.space \
+Curl command for API call:
+```
+curl --location --request GET 'https://anukvma-emailsubjectapi.hf.space' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "model_name":"anukvma/bart-base-medium-email-subject-generation-v5",
+    "email_content": "Harry - I got kicked out of the system, so I'\''m sending this from Tom'\''s account. He can fill you in on the potential deal with STEAG. I left my resume on your chair. I'\''ll e-mail a copy when I have my home account running. My contact info is:"
+}'
+```
