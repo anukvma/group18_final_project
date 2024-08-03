@@ -1,18 +1,9 @@
 # Email Subject Generation (Group 18)
-## Summary of the files in the repo
-[Group 18 - Capstone Project proposal - Google Docs.pdf](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group%2018%20-%20Capstone%20Project%20proposal%20-%20Google%20Docs.pdf): Project proposal \
-[api(folder)](https://github.com/anukvma/group18_email_subject_generation/tree/main/api): Code for Fast API includes Dockerfile, requirements.txt and main.py \
-[GradioAppWithModelSelection.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/GradioAppWithModelSelection.ipynb): Gradio App Notebook with model selection option. \
-[Group18EmailSubjectGradioApp.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailSubjectGradioApp.ipynb): Gradio App without model selection \
-[Group18EmailDataSetTrainingMistral.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailDataSetTrainingMistral.ipynb): Mistral Training and results \
-[Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb): Bart training and results \
-[Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb): Llama 3 Fine tuning and results \
-[Group18FineTuningT5EmailSubject.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuningT5EmailSubject.ipynb): T5 training and results
-
 
 ## Description
 Generate a succinct subject line from the body of an email.
 Email Subject Line Generation task involves identifying the most important sentences in an email and abstracting their message into just a few words. The project provides an opportunity to work with generative models in NLP, specifically using GPT-2 variants, and to explore different metrics for evaluating text generation.
+**Porject Proposal**: [Group 18 - Capstone Project proposal - Google Docs.pdf](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group%2018%20-%20Capstone%20Project%20proposal%20-%20Google%20Docs.pdf)
 
 ## DataSet
 Dataset used is from the below repository for fine tuning the models
@@ -30,6 +21,7 @@ The following models are fine tuned
 ## Training Details
 
 ### Mistral
+**Code File**: [Group18EmailDataSetTrainingMistral.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailDataSetTrainingMistral.ipynb): Mistral Training and results \
 Model: unsloth/mistral-7b-v0.3-bnb-4bit 
 ```
 FastLanguageModel.get_peft_model(
@@ -74,6 +66,7 @@ TrainingArguments(
 ```
 
 ### LLAMA3
+**Code File**: [Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb): Llama 3 Fine tuning and results \
 Model: unsloth/llama-3-8b-bnb-4bit
 ```
 FastLanguageModel.get_peft_model(
@@ -111,6 +104,7 @@ TrainingArguments(
     )
 ```
 ### T5
+**Code File**: [Group18FineTuningT5EmailSubject.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuningT5EmailSubject.ipynb): T5 training and results
 Model: t5-base \
 Training Framework: Transformer Seq2SeqTrainer \
 Training Arguments: 
@@ -137,6 +131,7 @@ Seq2SeqTrainingArguments(
 )
 ```
 ### Bart
+**Code File**: [Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb): Bart training and results \
 Model: facebook/bart-large-xsum \
 Training Framework: Transformer Seq2SeqTrainer \
 Training Arguments: 
@@ -263,7 +258,11 @@ Rouge score measures the similarity between the generated subject and the provid
      
 ## HuggingFace Demo URL
 **Gradio App:** https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo \
+[GradioAppWithModelSelection.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/GradioAppWithModelSelection.ipynb): Gradio App Notebook with model selection option. \
+[Group18EmailSubjectGradioApp.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailSubjectGradioApp.ipynb): Gradio App without model selection \
+
 **FAST API:** https://anukvma-emailsubjectapi.hf.space \
+Code files: [api(folder)](https://github.com/anukvma/group18_email_subject_generation/tree/main/api): Code for Fast API includes Dockerfile, requirements.txt and main.py \
 Curl command for API call:
 ```
 curl --location --request GET 'https://anukvma-emailsubjectapi.hf.space' \
