@@ -3,7 +3,7 @@
 [Group 18 - Capstone Project proposal - Google Docs.pdf](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group%2018%20-%20Capstone%20Project%20proposal%20-%20Google%20Docs.pdf): Project proposal \
 [api(folder)](https://github.com/anukvma/group18_email_subject_generation/tree/main/api): Code for Fast API includes Dockerfile, requirements.txt and main.py \
 [GradioAppWithModelSelection.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/GradioAppWithModelSelection.ipynb): Gradio App Notebook with model selection option. \
-[Group18EmailSubjectGradioApp.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailSubjectGradioApp.ipynb): Gradio App wihtout model selection \
+[Group18EmailSubjectGradioApp.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailSubjectGradioApp.ipynb): Gradio App without model selection \
 [Group18EmailDataSetTrainingMistral.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailDataSetTrainingMistral.ipynb): Mistral Training and results \
 [Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb): Bart training and results \
 [Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb): Llama 3 Fine tuning and results \
