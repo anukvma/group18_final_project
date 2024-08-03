@@ -2,7 +2,7 @@
 
 ## Description
 Generate a succinct subject line from the body of an email.
-Email Subject Line Generation task involves identifying the most important sentences in an email and abstracting their message into just a few words. The project provides an opportunity to work with generative models in NLP, specifically using GPT-2 variants, and to explore different metrics for evaluating text generation.
+Email Subject Line Generation task involves identifying the most important sentences in an email and abstracting their message into just a few words. The project provides an opportunity to work with generative models in NLP, specifically using GPT-2 variants, and to explore different metrics for evaluating text generation. \
 **Porject Proposal**: [Group 18 - Capstone Project proposal - Google Docs.pdf](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group%2018%20-%20Capstone%20Project%20proposal%20-%20Google%20Docs.pdf)
 
 ## DataSet
@@ -21,7 +21,7 @@ The following models are fine tuned
 ## Training Details
 
 ### Mistral
-**Code File**: [Group18EmailDataSetTrainingMistral.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailDataSetTrainingMistral.ipynb): Mistral Training and results \
+**Code File**: [Group18EmailDataSetTrainingMistral.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailDataSetTrainingMistral.ipynb) \
 Model: unsloth/mistral-7b-v0.3-bnb-4bit 
 ```
 FastLanguageModel.get_peft_model(
@@ -66,7 +66,7 @@ TrainingArguments(
 ```
 
 ### LLAMA3
-**Code File**: [Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb): Llama 3 Fine tuning and results \
+**Code File**: [Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb) \
 Model: unsloth/llama-3-8b-bnb-4bit
 ```
 FastLanguageModel.get_peft_model(
@@ -104,7 +104,7 @@ TrainingArguments(
     )
 ```
 ### T5
-**Code File**: [Group18FineTuningT5EmailSubject.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuningT5EmailSubject.ipynb): T5 training and results
+**Code File**: [Group18FineTuningT5EmailSubject.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuningT5EmailSubject.ipynb) \
 Model: t5-base \
 Training Framework: Transformer Seq2SeqTrainer \
 Training Arguments: 
@@ -131,7 +131,7 @@ Seq2SeqTrainingArguments(
 )
 ```
 ### Bart
-**Code File**: [Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb): Bart training and results \
+**Code File**: [Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb) \
 Model: facebook/bart-large-xsum \
 Training Framework: Transformer Seq2SeqTrainer \
 Training Arguments: 
@@ -258,6 +258,7 @@ Rouge score measures the similarity between the generated subject and the provid
      
 ## HuggingFace Demo URL
 **Gradio App:** https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo \
+Code Files: \
 [GradioAppWithModelSelection.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/GradioAppWithModelSelection.ipynb): Gradio App Notebook with model selection option. \
 [Group18EmailSubjectGradioApp.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailSubjectGradioApp.ipynb): Gradio App without model selection \
 
