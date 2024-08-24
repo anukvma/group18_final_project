@@ -1,0 +1,97 @@
+,Q,A,Unit
+1,What is the Bag of Words (BoW) model?,"The Bag of Words model is a method to extract features from text documents by considering the words and their frequency of occurrence, disregarding the semantic relationship between words.",2
+2,How does the BoW model create a vocabulary?,The BoW model creates a vocabulary by listing all the unique words occurring in all the documents in the training set.,2
+3,What is the main purpose of using the BoW model?,The main purpose of using the BoW model is to generate features for training machine learning algorithms.,2
+4,Give an example of how the BoW model works with three documents,"For documents D1: “I am feeling very happy today”, D2: “I am not well today”, and D3: “I wish I could go to play”, the BoW model creates a vocabulary and counts the frequency of each word in each document.",2
+5,What are the two major issues with the BoW model?,"The two major issues are the dimensionality problem, as the total dimension is the vocabulary size, and the lack of consideration for the semantic relationship between words.",2
+6,How can the dimensionality issue in the BoW model be addressed?,The dimensionality issue can be addressed by applying well-known dimensionality reduction techniques to the input data.,2
+7,Why is the sequence or order of words not important in the BoW model?,"In the BoW model, the number of occurrences of words is what matters, not the sequence or order of words.",2
+8,What does the BoW model disregard in its approach?,The BoW model disregards the semantic relationship between words in the sentences.,2
+9,How does the BoW model represent the frequency of words in documents?,The BoW model represents the frequency of words in documents using a table where each row corresponds to a document and each column corresponds to a word from the vocabulary.,2
+10,What is the significance of neighbor words in a sentence according to the BoW model?,"The BoW model does not consider the significance of neighbor words in a sentence, which is generally useful for predicting the target word.",2
+11,What is Natural Language Processing (NLP)?,"NLP is a field of computer science, artificial intelligence, and computational linguistics concerned with the interactions between computers and human (natural) languages.",2
+12,What are the two generations of NLP?,"The two generations are Hand-crafted Systems (Knowledge Engineering) and Automatic, Trainable (Machine Learning) Systems.",2
+13,What are some common NLP tasks?,"Common NLP tasks include tokenization, part of speech tagging, parsing, semantic tagging, named entity recognition, and coreference resolution.",2
+14,What is the significance of language modeling in NLP?,"Language modeling examines short sequences of words to predict the likelihood of each sequence, which is crucial for understanding and generating natural language.",2
+15,What is the Markov Assumption in language modeling?,The Markov Assumption states that a word is affected only by its prior local context (the last few words).,2
+16,What are n-grams in the context of NLP?,N-grams are sequences of ‘n’ words used to predict the probability of word sequences in language modeling.,2
+17,What is the purpose of smoothing in language modeling?,"Smoothing techniques, like Laplace smoothing, are used to handle unseen n-grams and improve the accuracy of language models.",2
+18,What is the Zipf Distribution in NLP?,"The Zipf Distribution describes how a few elements occur very frequently, a medium number of elements have medium frequency, and many elements occur very infrequently.",2
+19,What is Part of Speech (POS) tagging?,"POS tagging assigns a part of speech to each word in a given sentence, helping in understanding the grammatical structure of the sentence.",2
+20,What is named entity recognition (NER)?,"NER identifies and classifies strings of characters representing proper nouns, such as names of people, organizations, and locations.",2
+21,What is Word2Vec?,"Word2Vec is a machine learning model used to generate word embeddings, where words with similar meanings are positioned close to each other in vector space.",2
+22,Who developed Word2Vec?,Word2Vec was developed by a team led by Mikolov et al. at Google.,2
+23,What is the primary purpose of Word2Vec?,The primary purpose of Word2Vec is to capture the relationships between words and cluster similar words together in vector space.,2
+24,How does Word2Vec handle the relationship between words like ‘king’ and ‘queen’?,"Word2Vec can perform relational operations such as “King - Man + Woman = Queen,” demonstrating its ability to capture semantic relationships.",2
+25,What are word embeddings?,Word embeddings are vector representations of words that capture their meanings and relationships with other words.,2
+26,How does Word2Vec create word embeddings?,Word2Vec creates word embeddings by training on a large corpus of text and positioning similar words close to each other in vector space.,2
+27,What is an example of words clustered together by Word2Vec?,"Words like “Paris,” “Beijing,” “Tokyo,” “Delhi,” and “New York” are clustered together, as are “cat,” “dog,” “rat,” and “duck.”",2
+28,What kind of operations can Word2Vec perform?,"Word2Vec can extract the most similar words, measure the similarity between two words, and identify the odd word out in a group.",2
+29,What is the significance of vector space in Word2Vec?,"Vector space allows Word2Vec to position words in such a way that their semantic relationships are preserved, enabling meaningful operations on the words.",2
+30,What is a practical application of Word2Vec?,"A practical application of Word2Vec is in natural language processing tasks where understanding the relationships between words is crucial, such as in search engines and recommendation systems.",2
+31,What is the assumption behind dimensionality reduction?,"High-dimensional data often lives in a lower-dimensional manifold (sub-space), and we can represent the data points well by using just their lower-dimensional coordinates.",2
+32,What is Principal Component Analysis (PCA) used for?,PCA is used to reduce the dimensionality of data by capturing the distribution of points in high dimensions using their lower-dimensional coordinates.,2
+33,What is the difference between global and local approaches in dimensionality reduction?,"The global approach considers all distances in high dimensions equally important, while the local approach focuses on smaller, meaningful distances.",2
+34,What is Multidimensional Scaling (MDS)?,MDS is a technique that finds a representation that best preserves pair-wise distances between samples in high and low dimensions.,2
+35,What is a fundamental shortcoming of PCA?,"PCA assumes linearity, which may not be suitable for non-linear datasets like the Swiss-Roll dataset.",2
+36,What is ISOMAP and how does it work?,ISOMAP is a method that measures distances along the manifold by connecting each data point to its k nearest neighbors in high-dimensional space and computing the low-dimensional embedding.,2
+37,What are the issues with ISOMAP?,"ISOMAP can suffer from “short-circuit errors” if k is too large or too small, affecting the accuracy of the geodesic distance matrix and the low-dimensional embedding.",2
+38,What is Locally Linear Embedding (LLE)?,LLE preserves the structure of local neighborhoods by representing each point as a weighted combination of its neighbors in high dimensions and finding a low-dimensional representation that minimizes the representation error.,2
+39,What is the idea behind SNE and t-SNE?,"SNE and t-SNE use probabilities instead of distances to represent the likelihood of points being neighbors, optimizing these probabilities to be similar in low dimensions.",2
+40,How does t-SNE differ from SNE?,"t-SNE uses a t-distribution with 1 degree of freedom instead of a Gaussian distribution, which helps in better capturing the local structure in the data.",2
+41,What is a Multi-Layer Perceptron (MLP)?,"An MLP is a type of neural network that consists of at least three layers: an input layer, one or more hidden layers, and an output layer.",2
+42,What is the role of activation functions in MLP?,"Activation functions, such as step or sigmoid functions, are used in the neurons of hidden and output layers to introduce non-linearity into the model.",2
+43,What is the primary algorithm used for training MLPs?,The primary algorithm used for training MLPs is backpropagation.,2
+44,What is the objective of the backpropagation algorithm?,The objective of backpropagation is to update the weights of the network to minimize the error between the predicted and actual outputs.,2
+45,How is the error or loss calculated in MLP?,The error or loss is calculated as the squared difference between the actual class and the predicted class.,2
+46,What happens when the actual class deviates from the predicted class in MLP?,"When the actual class deviates from the predicted class, the squared error or loss is computed, and the weights are updated to reduce this error.",2
+47,What is the significance of the ground truth (GT) in MLP training?,"The ground truth (GT) represents the actual class, and it is used to calculate the loss and guide the weight updates during training.",2
+48,How does the backpropagation algorithm update weights?,"The backpropagation algorithm updates weights using gradient descent, which involves computing the gradient of the loss function with respect to the weights and adjusting the weights in the opposite direction of the gradient.",2
+49,What is the result of successful training in MLP?,"Successful training in MLP results in reduced loss or error, and the network finds appropriate weights that minimize the difference between predicted and actual outputs.",2
+50,What is the role of hidden layers in MLP?,Hidden layers in MLP help capture complex patterns and relationships in the data by introducing additional layers of computation between the input and output layers.,2
+51,`What are the key steps in the model development process?,"The key steps include acquiring raw data, preparing and cleaning data, feature engineering, picking a model and hyper-parameters, model training and optimization, evaluating model performance, and deploying the model.",2
+52,`What is accuracy in the context of model performance evaluation?,Accuracy is the ratio of correctly predicted observations to the total observations.,2
+53,`How is precision calculated?,Precision is calculated as the ratio of true positives (TP) to the sum of true positives and false positives (TP + FP).,2
+54,`What does recall measure in model evaluation?,Recall measures the ratio of true positives (TP) to the sum of true positives and false negatives (TP + FN).,2
+55,`What is the F1 Score and why is it important?,"The F1 Score is the harmonic mean of precision and recall, providing a balance between the two metrics, especially useful when dealing with imbalanced datasets.",2
+56,`What are ROC and PR curves used for?,ROC (Receiver Operating Characteristic) and PR (Precision-Recall) curves are used to evaluate the performance of classification models by illustrating the trade-offs between different metrics.,2
+57,`What is the significance of the confusion matrix in model evaluation?,"The confusion matrix helps in understanding the performance of a classification model by showing the counts of true positives, true negatives, false positives, and false negatives.",2
+58,`How is the True Positive Rate (TPR) calculated?,"TPR, also known as recall, is calculated as the ratio of true positives (TP) to the sum of true positives and false negatives (TP + FN).",2
+59,`What is the False Positive Rate (FPR)?,FPR is the ratio of false positives (FP) to the sum of false positives and true negatives (FP + TN).,2
+60,`Why is it important to consider both precision and recall in model evaluation?,Considering both precision and recall is important because they provide insights into the model’s performance in terms of both the relevance of the results (precision) and the ability to capture all relevant instances (recall).,2
+61,`What is underfitting in the context of model fitting?,"Underfitting occurs when a model is too simplistic and fails to capture the underlying patterns in the data, leading to poor performance on both training and testing datasets.",2
+62,`What are some common reasons for underfitting?,"Common reasons include a short training period, a simplistic model, and a lack of enough features.",2
+63,`What is overfitting in machine learning?,"Overfitting happens when a model learns the noise in the training data instead of the actual patterns, resulting in excellent performance on the training data but poor generalization to new data.",2
+64,`What are some indicators of overfitting?,Indicators include high training accuracy but low testing accuracy.,2
+65,`How can overfitting be detected?,Overfitting can be detected by comparing the model’s performance on training and testing datasets.,2
+66,`What are some strategies to prevent or reduce overfitting?,"Strategies include training with more data, reducing or removing features, early stopping, regularization, and ensembling.",2
+67,`What is regularization in the context of model fitting?,Regularization is the process of adding additional information to prevent overfitting by penalizing complex models.,2
+68,`What are some common regularization techniques?,Common techniques include L2-norm (Ridge Regression) and L1-norm (Lasso Regression).,2
+69,`What is the purpose of early stopping in training models?,Early stopping aims to halt the training process before the model starts to overfit the training data.,2
+70,How does dimensionality reduction help in preventing overfitting?,"Dimensionality reduction helps by reducing the number of features, thereby simplifying the model and reducing the risk of overfitting.",2
+71,What is the main goal of Support Vector Machines (SVM)?,The main goal of SVM is to find a hyperplane that best separates the data points of different classes with the maximum margin.,2
+72,What is the Kernel Trick in SVM?,"The Kernel Trick allows SVM to perform in high-dimensional space without explicitly mapping the data to that space, using kernel functions to compute the inner products.",2
+73,What are some popular kernel functions used in SVM?,"Popular kernel functions include Polynomial, Radial Basis Function (RBF), and Hyperbolic Tangent.",2
+74,What is the significance of the feature mapping in SVM?,Feature mapping transforms the data into a higher-dimensional space where it becomes linearly separable.,2
+75,How does the SVM handle non-linear data?,"SVM handles non-linear data by transforming it into a higher-dimensional space using kernel functions, making it linearly separable.",2
+76,What is the role of the hyperplane in SVM?,"The hyperplane is the decision boundary that separates different classes in the feature space, and SVM aims to find the hyperplane with the maximum margin.",2
+77,What is the main goal of Support Vector Machines (SVM)?,The main goal of SVM is to find a separating hyperplane that maximizes the margin between different classes.,2
+78,What is the difference between hard margin and soft margin SVM?,"Hard margin SVM assumes that the data is linearly separable and aims to find a hyperplane with no misclassifications, while soft margin SVM allows for some misclassifications by introducing a penalty for violations.",2
+79,What is the role of the parameter ( C ) in SVM?,The parameter ( C ) controls the trade-off between maximizing the margin and minimizing the classification error. A larger ( C ) puts more emphasis on minimizing errors.,2
+80,What is the dual problem in SVM?,"The dual problem in SVM involves maximizing a quadratic function of the Lagrangian multipliers subject to certain constraints, and it is often easier to solve than the primal problem.",2
+81,What are support vectors in SVM?,Support vectors are the data points that lie closest to the separating hyperplane and have a direct impact on its position and orientation.,2
+82,How does the kernel trick help in SVM?,"The kernel trick allows SVM to operate in a high-dimensional space without explicitly computing the coordinates of the data in that space, using kernel functions to compute inner products.",2
+83,What are some common kernel functions used in SVM?,"Common kernel functions include the linear kernel, polynomial kernel, radial basis function (RBF) kernel, and sigmoid kernel.",2
+84,How does SVM handle non-linear data?,"SVM handles non-linear data by mapping it to a higher-dimensional space using kernel functions, where it becomes linearly separable.",2
+85,What is the significance of the margin in SVM?,The margin is the distance between the separating hyperplane and the closest data points from each class. Maximizing the margin helps improve the generalization ability of the model.,2
+86,What is the role of the Lagrangian multipliers in SVM?,Lagrangian multipliers are used in the dual formulation of SVM to optimize the objective function and determine the support vectors.,2
+87,What is Principal Component Analysis (PCA)?,PCA is a dimensionality reduction technique that extracts important information from high-dimensional data and arranges the new dimensions in order of importance.,2
+88,What are the benefits of dimensionality reduction?,"Benefits include faster computations, data visualization, noise elimination, reduced risk of model overfitting, and reduced space requirements.",2
+89,What are the two main approaches to dimensionality reduction?,The two main approaches are feature selection (selecting the best features or discarding irrelevant ones) and feature extraction (combining existing variables to form new features).,2
+90,How does PCA determine the new dimensions?,PCA determines the new dimensions by retaining the direction of maximum variance and ensuring minimal information loss.,2
+91,What is variance and why is it important in PCA?,Variance measures the spread of data and is important in PCA because it helps identify the directions with the most information.,2
+92,What is covariance and how is it used in PCA?,Covariance measures how much each dimension varies from the mean with respect to each other. It is used to find relationships between dimensions and to compute the covariance matrix.,2
+93,What is the covariance matrix?,"The covariance matrix represents the covariance between dimensions as a matrix, where the diagonal elements represent variances and the off-diagonal elements represent covariances.",2
+94,What are principal components in PCA?,"Principal components are the directions in which the data shows the largest variation, derived from the covariance matrix.",2
+95,What are eigenvectors and eigenvalues in PCA?,"Eigenvectors determine the directions of the new feature space, and eigenvalues determine their magnitude. They are derived from the covariance matrix.",2
+96,What is the process of applying PCA to a dataset?,"The process involves computing the mean vector and covariance matrix, obtaining eigenvectors and eigenvalues, and projecting the data points into the new feature subspace.",2
