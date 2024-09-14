@@ -1,135 +1,21 @@
-# Email Subject Generation (Group 18)
+# AIML Questions and Answers (Group 18)
 
 ## Description
-Generate a succinct subject line from the body of an email.
-Email Subject Line Generation task involves identifying the most important sentences in an email and abstracting their message into just a few words. The project provides an opportunity to work with generative models in NLP, specifically using GPT-2 variants, and to explore different metrics for evaluating text generation. \
+Answer the given AIML Questions: Modeling a domain-specific GPT-variant model that can answer the questions specific to the AIML course. It has been observed that while pretrained models can produce relevant textual output for general, open-domain textual prompts, the models lack the capability of producing finer outputs when it comes to domain-specific tasks. For this purpose, we commonly finetune the model on a dataset specific to that task, to tailor its expertise on it. Here, the participants will work together to build a novel, relevant dataset for the task. Post finetuning, they will observe its performance on unseen, related questions. \
 **Project Proposal**: [Group 18 - Capstone Project proposal - Google Docs.pdf](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group%2018%20-%20Capstone%20Project%20proposal%20-%20Google%20Docs.pdf)
 
 ## DataSet
 Dataset used is from the below repository for fine tuning the models
-The Annotated Enron Subject Line Corpus: https://github.com/ryanzhumich/AESLC
+[https://drive.google.com/drive/folders/1O2qMvEfKXyhdF1HcHIck6eWLPRMGmPUv?usp=sharing](https://drive.google.com/drive/folders/1O2qMvEfKXyhdF1HcHIck6eWLPRMGmPUv?usp=sharing)
 
 ## Models
 The following models are fine tuned 
 | LLM     	| Framework             | Model Type        | Training Steps       	| Evaluation Method    	| 
 |---------	|---------------------	|-------------------|---------------------	|----------------------	|
-| Mistral 	| unsloth             	| 4 bit quantized 	| 60 	                  | ROUGE Score         	|
-| Llama3  	| unsloth             	| 4 bit quantized 	| 60  	                | ROUGE Score           |
-| T5      	| Transformer           | Base model       	| 200                  	| ROUGE Score          	|
-| Bart    	| Transformer           | Base model       	| 200                  	| ROUGE Score          	|
+| Bart    	| Transformer           | Base model       	| 600                  	| ROUGE Score          	|
 
 ## Training Details
 
-### Mistral
-**Code File**: [Group18EmailDataSetTrainingMistral.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailDataSetTrainingMistral.ipynb) \
-Model: unsloth/mistral-7b-v0.3-bnb-4bit 
-```
-FastLanguageModel.get_peft_model(
-    model,
-    r = 16, # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
-    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",
-                      "gate_proj", "up_proj", "down_proj",],
-    lora_alpha = 16,
-    lora_dropout = 0, # Supports any, but = 0 is optimized
-    bias = "none",    # Supports any, but = "none" is optimized
-    # [NEW] "unsloth" uses 30% less VRAM, fits 2x larger batch sizes!
-    use_gradient_checkpointing = "unsloth", # True or "unsloth" for very long context
-    random_state = 3407,
-    use_rslora = False,  # We support rank stabilized LoRA
-    loftq_config = None, # And LoftQ
-)
-```
-Training Framework: Huggingface trl [SFTrainer](https://huggingface.co/docs/trl/v0.9.6/en/sft_trainer#trl.SFTTrainer) \
-Training Arguments:
-```
-TrainingArguments(
-    per_device_train_batch_size = 2,
-    per_device_eval_batch_size=2,
-    gradient_accumulation_steps = 4,
-    evaluation_strategy="steps",
-    warmup_steps = 5,
-    num_train_epochs=3,
-    max_steps = 60, # Set num_train_epochs = 1 for full training runs
-    learning_rate = 2e-4,
-    fp16 = not is_bfloat16_supported(),
-    bf16 = is_bfloat16_supported(),
-    logging_steps = 1,
-    optim = "adamw_8bit",
-    weight_decay = 0.01,
-    lr_scheduler_type = "linear",
-    seed = 3407,
-    output_dir = "outputs",
-#      report_to="wandb",  # enable logging to W&B
-    logging_strategy = 'steps',
-   # save_total_limit=2,
-)
-```
-
-### LLAMA3
-**Code File**: [Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneLlama3EmailSubjectFinal.ipynb.ipynb) \
-Model: unsloth/llama-3-8b-bnb-4bit
-```
-FastLanguageModel.get_peft_model(
-    model,
-    r = 16, # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
-    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",
-                      "gate_proj", "up_proj", "down_proj",],
-    lora_alpha = 16,
-    lora_dropout = 0, # Supports any, but = 0 is optimized
-    bias = "none",    # Supports any, but = "none" is optimized
-    # [NEW] "unsloth" uses 30% less VRAM, fits 2x larger batch sizes!
-    use_gradient_checkpointing = "unsloth", # True or "unsloth" for very long context
-    random_state = 3407,
-    use_rslora = False,  # We support rank stabilized LoRA
-    loftq_config = None, # And LoftQ
-)
-```
-Training Framework: Huggingface trl [SFTrainer](https://huggingface.co/docs/trl/v0.9.6/en/sft_trainer#trl.SFTTrainer) \
-Training Arguments:
-```
-TrainingArguments(
-        per_device_train_batch_size = 2,
-        gradient_accumulation_steps = 4,
-        warmup_steps = 5,
-        max_steps = 60,
-        learning_rate = 2e-4,
-        fp16 = not is_bfloat16_supported(),
-        bf16 = is_bfloat16_supported(),
-        logging_steps = 1,
-        optim = "adamw_8bit",
-        weight_decay = 0.01,
-        lr_scheduler_type = "linear",
-        seed = 3407,
-        output_dir = "outputs",
-    )
-```
-### T5
-**Code File**: [Group18FineTuningT5EmailSubject.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuningT5EmailSubject.ipynb) \
-Model: t5-base \
-Training Framework: Transformer Seq2SeqTrainer \
-Training Arguments: 
-```
-Seq2SeqTrainingArguments(
-    model_dir,
-    evaluation_strategy="steps",
-    eval_steps=200,
-    logging_strategy="steps",
-    logging_steps=100,
-    save_strategy="steps",
-    save_steps=200,
-    learning_rate=4e-5,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
-    weight_decay=0.01,
-    save_total_limit=3,
-    num_train_epochs=2,
-    predict_with_generate=True,
-    fp16=True,
-    load_best_model_at_end=True,
-    metric_for_best_model="rouge1",
-    report_to="tensorboard"
-)
-```
 ### Bart
 **Code File**: [Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb) \
 Model: facebook/bart-large-xsum \
@@ -139,23 +25,35 @@ Training Arguments:
 Seq2SeqTrainingArguments(
     model_dir,
     evaluation_strategy="steps",
-    eval_steps=200,
+    eval_steps=100,
     logging_strategy="steps",
     logging_steps=100,
     save_strategy="steps",
-    save_steps=200,
+    save_steps=100,
     learning_rate=4e-5,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    per_device_train_batch_size=batch_size,
+    per_device_eval_batch_size=batch_size,
     weight_decay=0.01,
     save_total_limit=3,
-    num_train_epochs=2,
+    num_train_epochs=6,
     predict_with_generate=True,
     fp16=True,
     load_best_model_at_end=True,
     metric_for_best_model="rouge1",
     report_to="tensorboard"
 )
+**Result**:
+Training:
+Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum	Gen Len
+100	3.014600	2.570830	33.137500	14.415600	27.374400	28.190300	31.850000
+200	2.087700	2.501255	35.015200	15.145300	28.741700	29.822700	34.110000
+300	1.507400	2.540349	35.207000	14.807500	28.700600	30.715900	41.570000
+400	1.089400	2.717226	34.006500	14.434000	27.868000	29.710000	41.610000
+500	0.776600	2.945216	36.228900	16.209900	29.720400	31.375800	40.040000
+600	0.577400	3.062018	35.786700	16.206200	29.868600	31.719700	41.520000
+
+Test:
+
 ```
 ## Inference Results
 
@@ -177,62 +75,6 @@ Organizing an Action Plan for the Start
 ### Bart Model Output:
 Organizing an Action Plan
 
-### Email Body:
-﻿Please help summarize the provided email body and generate email subject Of interest - Gas Logistics combined 2001 payroll is $8,209,648.\nThe 2002 Plans were built with a 4.25% combined merit and other which equates to $348,910.\nAt 3.75% the combined merit and other equates to $307,862, a reduction of $41,048.\nOver the next few days, I will be rebuilding the 2002 revised plan for distribution.\nDonna
-  
-### Reference Output:
-"Reduced %",
-"gas logistics combined 2001 payroll",
-"of interest; new percentage rates coming for revised 2002 distributions of merits",
-"plan to rebuild gas logistics payroll plan underway"
-
-### Llama3 Model Output:
-﻿Gas Logistics Payroll
-
-### Mistral Model Output:
-﻿Gas Logistics combined payroll and merit increase
-
-### T5 Model Output:
-Gas Logistics combined 2001 payroll is $8,2
-
-### Bart Model Output:
-2002 plans
-
-### Email Body
-﻿Please help summarize the provided email body and generate email subject The following reports have been waiting for your approval for more than 4 days. Please review. Owner: James W Reitmeyer Report Name: JReitmeyer 10/24/01 Days In Mgr. Queue: 5
-
-### Reference Ouptut:
-reports awaiting approval
-
-### Llama3 Model Output:
-﻿Reports Waiting For Approval
-
-### Mistral Model Output:
-﻿Approval Needed - Reports Waiting More Than Four Days
-
-### T5 Model Output:
-Reports Waiting For Your Approval
-
-### Bart Model Output:
-Expense Reports Awaiting Your Approval
-
-### Email Body:
-﻿Please help summarize the provided email body and generate email subject A new Kudlow Commentary has been published on Kudlow.com.\nAs a subscriber, you may click the hyperlink below, login, and view the latest commentary.\nAOL Users please note, you may need to copy and paste the hyperlink into your web browser.\nThank You,
-
-### Reference Output:
-New Kudlow Commentary
-
-### Llama3 Model Output:
-﻿New Kudlow Commentaries Available Online
-
-### Mistral Model Output:
-﻿Kudlow Commentary - The New Year's Resolution
-
-### T5 Model Output:
-Kudlow Commentary
-
-### Bart Model Output:
-Kudlow Commentary
 
 ## Model Evaluation Criteria
 ### Rouge Score
