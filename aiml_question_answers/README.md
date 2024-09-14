@@ -42,8 +42,10 @@ Seq2SeqTrainingArguments(
     metric_for_best_model="rouge1",
     report_to="tensorboard"
 )
+```
 **Result**:
 Training:
+```
 Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum	Gen Len
 100	3.014600	2.570830	33.137500	14.415600	27.374400	28.190300	31.850000
 200	2.087700	2.501255	35.015200	15.145300	28.741700	29.822700	34.110000
@@ -51,9 +53,14 @@ Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum	Gen Len
 400	1.089400	2.717226	34.006500	14.434000	27.868000	29.710000	41.610000
 500	0.776600	2.945216	36.228900	16.209900	29.720400	31.375800	40.040000
 600	0.577400	3.062018	35.786700	16.206200	29.868600	31.719700	41.520000
-
+```
 Test:
-
+```
+{'rouge1': 38.3593,
+ 'rouge2': 17.502,
+ 'rougeL': 31.3383,
+ 'rougeLsum': 33.4465,
+ 'gen_len': 40.5906}
 ```
 ## Inference Results
 
@@ -82,10 +89,7 @@ Rouge score measures the similarity between the generated subject and the provid
 ## Result
 | LLM     	| Rogue1              	| Rogue2               	| RougeL              	| RogueLSum            	|
 |---------	|---------------------	|----------------------	|---------------------	|----------------------	|
-| Mistral 	| 0.04175057546404236 	| 0.015307029349338995 	| 0.03865576026979294 	| 0.040112317820734385 	|
-| Llama3  	| 0.044540652323630435 	| 0.016282087086038018 	| 0.03984053234184394  	| 0.04157418257161926  	|
-| T5      	| 0.144567            	| 0.070306             	| 0.140258            	| 0.141119             	|
-| Bart    	| 0.267373            	| 0.134597             	| 0.249993            	| 0.250012             	|
+| Bart    	| 0.383593            	| 0.17502            	| 0.313383           	| 0.405906             	|
 
 ## Observations
 1. Generative models are very large to be trained on base model, we had to use quantized versions. Also for training we used [PEFT](https://huggingface.co/docs/peft/en/package_reference/lora) 
