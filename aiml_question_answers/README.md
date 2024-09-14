@@ -17,7 +17,7 @@ The following models are fine tuned
 ## Training Details
 
 ### Bart
-**Code File**: [Group18FineTuneBartEmailSubjectFinal.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18FineTuneBartEmailSubjectFinal.ipynb) \
+**Code File**: [Group18FineTuneBartQuestionAnswer.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18FineTuneBartQuestionAnswer.ipynb) \
 Model: facebook/bart-large-xsum \
 Training Framework: Transformer Seq2SeqTrainer \
 Training Arguments: 
