@@ -54,9 +54,9 @@ Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum	Gen Len
 400	1.089400	2.717226	34.006500	14.434000	27.868000	29.710000	41.610000
 500	0.776600	2.945216	36.228900	16.209900	29.720400	31.375800	40.040000
 600	0.577400	3.062018	35.786700	16.206200	29.868600	31.719700	41.520000
-
+```
 ### GPT
-**Code File**: [Group18FineTuneBartQuestionAnswer.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18FineTuneBartQuestionAnswer.ipynb) \
+**Code File**: [Group18FineTuneGPTQuestionAnswer.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18FineTuneGPTQuestionAnswer.ipynb) \
 Model: gpt2 \
 Training Framework: Transformer \
 Training Arguments: 
@@ -95,7 +95,7 @@ Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
 300	1.494900	1.314155	0.482422	0.173687	0.392187	0.425295
 400	1.484500	1.308874	0.482999	0.176904	0.394567	0.426415
 500	1.476100	1.306868	0.482330	0.177874	0.394122	0.427295
-
+```
 ## Inference Results
 
 ### Question:
