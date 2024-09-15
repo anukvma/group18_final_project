@@ -13,6 +13,7 @@ The following models are fine tuned
 | LLM     	| Framework             | Model Type        | Training Steps       	| Evaluation Method    	| 
 |---------	|---------------------	|-------------------|---------------------	|----------------------	|
 | Bart    	| Transformer           | Base model       	| 600                  	| ROUGE Score          	|
+| GPT2    	| Transformer (LoRa)           | Base model       	| 600                  	| ROUGE Score          	|
 
 ## Training Details
 
@@ -53,15 +54,48 @@ Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum	Gen Len
 400	1.089400	2.717226	34.006500	14.434000	27.868000	29.710000	41.610000
 500	0.776600	2.945216	36.228900	16.209900	29.720400	31.375800	40.040000
 600	0.577400	3.062018	35.786700	16.206200	29.868600	31.719700	41.520000
+
+### GPT
+**Code File**: [Group18FineTuneBartQuestionAnswer.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18FineTuneBartQuestionAnswer.ipynb) \
+Model: gpt2 \
+Training Framework: Transformer \
+Training Arguments: 
 ```
-Test:
+lora_config = LoraConfig(
+    r=4,  # Rank of the low-rank adaptation matrix
+    lora_alpha=16,  # Scaling factor for the low-rank adaptation
+    lora_dropout=0.1,  # Dropout for regularization
+    bias="none",  # No bias adjustment
+    task_type="CAUSAL_LM"  # Task type for GPT-like models
+)
+TrainingArguments(
+    output_dir="./gpt3-lora-qa",
+    overwrite_output_dir=True,
+    evaluation_strategy="steps",
+    eval_steps=100,
+    logging_strategy="steps",
+    logging_steps=100,
+    num_train_epochs=5,
+    per_device_train_batch_size=2,  # Lower batch size
+    per_device_eval_batch_size=2,
+    gradient_accumulation_steps=4,  # Adjust batch size based on GPU memory
+    save_steps=500,
+    save_total_limit=2,
+    fp16=True,  # Use mixed precision training for efficiency
+    report_to="none",
+    dataloader_pin_memory=True
+)
 ```
-{'rouge1': 38.3593,
- 'rouge2': 17.502,
- 'rougeL': 31.3383,
- 'rougeLsum': 33.4465,
- 'gen_len': 40.5906}
+**Result**:
+Training:
 ```
+Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
+100	1.561300	1.344851	0.476642	0.168196	0.388193	0.421086
+200	1.515700	1.325351	0.477955	0.170701	0.389714	0.421446
+300	1.494900	1.314155	0.482422	0.173687	0.392187	0.425295
+400	1.484500	1.308874	0.482999	0.176904	0.394567	0.426415
+500	1.476100	1.306868	0.482330	0.177874	0.394122	0.427295
+
 ## Inference Results
 
 ### Question:
@@ -78,6 +112,7 @@ Rouge score measures the similarity between the generated subject and the provid
 | LLM     	| Rogue1              	| Rogue2               	| RougeL              	| RogueLSum            	|
 |---------	|---------------------	|----------------------	|---------------------	|----------------------	|
 | Bart    	| 0.383593            	| 0.17502            	| 0.313383           	| 0.405906             	|
+| GPT2    	| 0.482330            	| 0.177874           	| 0.394122          	| 0.427295             	|
 
 ## Observations
 1. Generative models are very large to be trained on base model, we had to use quantized versions. Also for training we used [PEFT](https://huggingface.co/docs/peft/en/package_reference/lora) 
