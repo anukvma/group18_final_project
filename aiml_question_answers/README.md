@@ -131,9 +131,11 @@ SFTTrainer(
     )
 ```
 **Result**:
+Training
+```
 Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
 60	    0.88	        1.55	        0.29    0.10    0.22    0.23
-
+```
 ### Mistral7b
 **Code File**: [Group18_AIML_Q_&_A__Mistral_7b_finetuning.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18_AIML_Q_&_A_Mistral_7b_finetuning.ipynb) \
 Model: Mistral7b \
@@ -165,9 +167,11 @@ SFTTrainer(
     )
 ```
 **Result**:
+Training
+```
 Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
 60	    0.88	        1.55	        0.26    0.08    0.21    0.20
-
+```
 ## Inference Results
 
 ### Question:
