@@ -13,7 +13,10 @@ The following models are fine tuned
 | LLM     	| Framework             | Model Type        | Training Steps       	| Evaluation Method    	| 
 |---------	|---------------------	|-------------------|---------------------	|----------------------	|
 | Bart    	| Transformer           | Base model       	| 600                  	| ROUGE Score          	|
-| GPT2    	| Transformer (LoRa)           | Base model       	| 600                  	| ROUGE Score          	|
+| GPT2    	| Transformer (LoRa)    | Base model       	| 600                  	| ROUGE Score          	|
+| Mistral7b | Unsloth               | 4bit Quantized   	| 60                 	| ROUGE Score          	|
+| Llama3.1	| Unsloth               | 4bit Quantized   	| 60                  	| ROUGE Score          	|
+
 
 ## Training Details
 
@@ -96,6 +99,75 @@ Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
 400	1.484500	1.308874	0.482999	0.176904	0.394567	0.426415
 500	1.476100	1.306868	0.482330	0.177874	0.394122	0.427295
 ```
+
+### Llama3.1
+**Code File**: [Group18_AIML_Q_&_A_Llama_3_1_8b_finetuning.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18_AIML_Q_&_A_Llama_3_1_8b_finetuning.ipynb) \
+Model: Llama3.1 \
+Training Framework: Unsloth \
+Training Arguments: 
+```
+SFTTrainer(
+    model = model,
+    tokenizer = tokenizer,
+    train_dataset = dataset,
+    dataset_text_field = "text",
+    max_seq_length = max_seq_length,
+    dataset_num_proc = 2,
+    packing = False, # Can make training 5x faster for short sequences.
+    args = TrainingArguments(
+        per_device_train_batch_size = 2,
+        gradient_accumulation_steps = 4,
+        warmup_steps = 5,
+        max_steps = 60,
+        learning_rate = 2e-4,
+        fp16 = not is_bfloat16_supported(),
+        bf16 = is_bfloat16_supported(),
+        logging_steps = 1,
+        optim = "adamw_8bit",
+        weight_decay = 0.01,
+        lr_scheduler_type = "linear",
+        seed = 3407,
+        output_dir = "outputs",
+    )
+```
+**Result**:
+Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
+60	    0.88	        1.55	        0.29    0.10    0.22    0.23
+
+### Mistral7b
+**Code File**: [Group18_AIML_Q_&_A__Mistral_7b_finetuning.ipynb](https://github.com/anukvma/group18_final_project/blob/main/aiml_question_answers/Group18_AIML_Q_&_A_Mistral_7b_finetuning.ipynb) \
+Model: Mistral7b \
+Training Framework: Unsloth \
+Training Arguments: 
+```
+SFTTrainer(
+    model = model,
+    tokenizer = tokenizer,
+    train_dataset = dataset,
+    dataset_text_field = "text",
+    max_seq_length = max_seq_length,
+    dataset_num_proc = 2,
+    packing = False, # Can make training 5x faster for short sequences.
+    args = TrainingArguments(
+        per_device_train_batch_size = 2,
+        gradient_accumulation_steps = 4,
+        warmup_steps = 5,
+        max_steps = 60,
+        learning_rate = 2e-4,
+        fp16 = not is_bfloat16_supported(),
+        bf16 = is_bfloat16_supported(),
+        logging_steps = 1,
+        optim = "adamw_8bit",
+        weight_decay = 0.01,
+        lr_scheduler_type = "linear",
+        seed = 3407,
+        output_dir = "outputs",
+    )
+```
+**Result**:
+Step	Training Loss	Validation Loss	Rouge1	Rouge2	Rougel	Rougelsum
+60	    0.88	        1.55	        0.26    0.08    0.21    0.20
+
 ## Inference Results
 
 ### Question:
@@ -113,6 +185,8 @@ Rouge score measures the similarity between the generated subject and the provid
 |---------	|---------------------	|----------------------	|---------------------	|----------------------	|
 | Bart    	| 0.383593            	| 0.17502            	| 0.313383           	| 0.405906             	|
 | GPT2    	| 0.482330            	| 0.177874           	| 0.394122          	| 0.427295             	|
+| Llama31   | 0.20            	    | 0.10           	    | 0.22        	        | 0.23             	    |
+| Mistral7b | 0.26            	    | 0.08           	    | 0.21       	        | 0.20             	    |
 
 ## Observations
 1. Generative models are very large to be trained on base model, we had to use quantized versions. Also for training we used [PEFT](https://huggingface.co/docs/peft/en/package_reference/lora) 
