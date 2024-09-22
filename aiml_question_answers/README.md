@@ -194,22 +194,19 @@ Rouge score measures the similarity between the generated subject and the provid
 
 ## Observations
 1. Generative models are very large to be trained on base model, we had to use quantized versions. Also for training we used [PEFT](https://huggingface.co/docs/peft/en/package_reference/lora) 
-
+2. We observed GPT2 is best model for questions and answers task followed by bart.
      
 ## HuggingFace Demo URL
-**Gradio App:** https://huggingface.co/spaces/GSridhar1982/EmailSubjectGenerationDemo \
-Code Files: \
-[GradioAppWithModelSelection.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/GradioAppWithModelSelection.ipynb): Gradio App Notebook with model selection option. \
-[Group18EmailSubjectGradioApp.ipynb](https://github.com/anukvma/group18_email_subject_generation/blob/main/Group18EmailSubjectGradioApp.ipynb): Gradio App without model selection \
+**Gradio App:** [https://huggingface.co/spaces/anukvma/Question_Answer](https://huggingface.co/spaces/anukvma/Question_Answer) \
 
-**FAST API:** https://anukvma-emailsubjectapi.hf.space \
-Code files: [api(folder)](https://github.com/anukvma/group18_email_subject_generation/tree/main/api): Code for Fast API includes Dockerfile, requirements.txt and main.py \
+**FAST API:** [hugging face space](https://huggingface.co/spaces/anukvma/AIMLQnAAPI) \
+Code files: [api(folder)](https://github.com/anukvma/group18_final_project/tree/main/aiml_question_answers/api): Code for Fast API includes Dockerfile, requirements.txt and main.py \
 Curl command for API call:
 ```
-curl --location --request GET 'https://anukvma-emailsubjectapi.hf.space' \
+curl --location --request GET 'https://anukvma-aimlqnaapi.hf.space' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "model_name":"anukvma/bart-base-medium-email-subject-generation-v5",
-    "email_content": "Harry - I got kicked out of the system, so I'\''m sending this from Tom'\''s account. He can fill you in on the potential deal with STEAG. I left my resume on your chair. I'\''ll e-mail a copy when I have my home account running. My contact info is:"
+    "question": "what is linear regression?"
 }'
 ```
+Response: "Linear regression is a statistical method used to forecast the probability of a dependent variable using a linear equation."
