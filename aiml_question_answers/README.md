@@ -198,7 +198,7 @@ Rouge score measures the similarity between the generated subject and the provid
      
 ## HuggingFace Demo URL
 **Gradio App:** [anukvma/Question_Answer](https://huggingface.co/spaces/anukvma/Question_Answer) \
-**Gradio App:** [GSridhar1982/QA_Llama31_Quantized_GGUF] (https://huggingface.co/spaces/GSridhar1982/QA_Llama31_Quantized_GGUF) \
+**Gradio App:** [GSridhar1982/QA_Llama31_FineTuned] ([https://huggingface.co/spaces/GSridhar1982/QA_Llama31_FineTuned]) \
 
 
 **FAST API:** [hugging face space](https://huggingface.co/spaces/anukvma/AIMLQnAAPI) \
