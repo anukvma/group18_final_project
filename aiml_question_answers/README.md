@@ -197,7 +197,7 @@ Rouge score measures the similarity between the generated subject and the provid
 2. We observed GPT2 is best model for questions and answers task followed by bart.
      
 ## HuggingFace Demo URL
-**Gradio App:** [anukvma/Question_Answer](https://huggingface.co/spaces/anukvma/Question_Answer) \
+**Gradio App:** [anukvma/Question_Answer](https://huggingface.co/spaces/anukvma/AIML_Question_Answer?logs=build) \
 **Gradio App:** [GSridhar1982/QA_Llama31_FineTuned] ([https://huggingface.co/spaces/GSridhar1982/QA_Llama31_FineTuned]) \
 
 
